@@ -16,6 +16,9 @@ public class PlayerBehaviour : MonoBehaviour
 
     public bool isGoingDown = true;
 
+    public float oldXPos;
+    public float oldYPos;
+
     private Rigidbody m_rigibody;
 
     [SerializeField]
@@ -24,7 +27,7 @@ public class PlayerBehaviour : MonoBehaviour
     [SerializeField]
     private float m_gravity;
 
-    private float oldYPos;
+    
 
     private Transform m_transform;
 
@@ -106,5 +109,11 @@ public class PlayerBehaviour : MonoBehaviour
         }
 
         oldYPos = transform.position.y;
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Unstucker"))
+            m_rigibody.velocity = new Vector3(m_rigibody.velocity.x + 2f, m_rigibody.velocity.y + 2f, m_rigibody.velocity.z);
     }
 }

@@ -34,8 +34,6 @@ public class PeixeFollow : MonoBehaviour {
     private void Update()
     {
         transform.position = player.position;
-        
-        
 
     }
 

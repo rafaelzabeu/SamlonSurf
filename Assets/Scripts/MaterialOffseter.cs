@@ -19,6 +19,10 @@ public class MaterialOffseter : MonoBehaviour {
     private void Update()
     {
         m_offset = new Vector2(m_offset.x + offsetPerSec * Time.deltaTime, m_offset.y);
+        if(m_offset.x > 250)
+        {
+            m_offset.x = 0;
+        }
         m_material.mainTextureOffset = m_offset; 
     }
 
