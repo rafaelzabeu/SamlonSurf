@@ -1,49 +1,15 @@
 fileFormatVersion: 2
-guid: 94e48feec0ed5a44b83e3aaf645da1f4
-timeCreated: 1484975480
+guid: 52e2c6a662946204599772698e97186e
+timeCreated: 1485011193
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
     100000: //RootNode
-    100002: Line001
-    100004: Object
-    100006: Object001
-    100008: Object003
-    100010: Background
-    100012: Background 2
-    100014: Ground
     400000: //RootNode
-    400002: Line001
-    400004: Object
-    400006: Object001
-    400008: Object003
-    400010: Background
-    400012: Background 2
-    400014: Ground
     2300000: //RootNode
-    2300002: Line001
-    2300004: Object
-    2300006: Object001
-    2300008: Object003
-    2300010: Background
-    2300012: Background 2
-    2300014: Ground
     3300000: //RootNode
-    3300002: Line001
-    3300004: Object
-    3300006: Object001
-    3300008: Object003
-    3300010: Background
-    3300012: Background 2
-    3300014: Ground
     4300000: Line001
-    4300002: Object
-    4300004: Object003
-    4300006: Object001
-    4300008: Ground
-    4300010: Background 2
-    4300012: Background
     9500000: //RootNode
   materials:
     importMaterials: 1
