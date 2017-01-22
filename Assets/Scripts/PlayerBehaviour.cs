@@ -42,13 +42,13 @@ public class PlayerBehaviour : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.DownArrow))
+        if (Input.GetKey(KeyCode.Space))
         {
             m_rigibody.velocity = new Vector3(m_rigibody.velocity.x, m_rigibody.velocity.y - (2 * Time.deltaTime), m_rigibody.velocity.z);
             Physics.gravity = new Vector3(0f, -15f, 0f);
         }
 
-        if (Input.GetKeyUp(KeyCode.DownArrow) && m_canBoost)
+        if (Input.GetKeyUp(KeyCode.Space) && m_canBoost)
         {
             m_rigibody.velocity = new Vector3(m_rigibody.velocity.x + Mathf.Abs(m_rigibody.velocity.y * 2), m_rigibody.velocity.y * 2, m_rigibody.velocity.z);
         }

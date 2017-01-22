@@ -1,16 +1,20 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour {
 
     public PlayerBehaviour playerBehaviour;
 
+    public GamePlayMenuController gameOverMenu;
+
     public AudioClip intro;
     public AudioClip loop;
 
     public float time;
+    public float timeEnd;
+
+    public bool hasGameEnded;
 
     public float points;
 
@@ -21,6 +25,8 @@ public class GameManager : MonoBehaviour {
     public bool canAddPoints;
 
 	void Start () {
+
+        Time.timeScale = 1;
         AudioController.Instance.Play(intro, AudioController.SoundType.Music);
         StartCoroutine(wait(intro.length, () =>
          {
@@ -28,6 +34,7 @@ public class GameManager : MonoBehaviour {
          }));
         points = 0;
         canAddPoints = false;
+        hasGameEnded = false;
 	}
 
     private void OnEnable()
@@ -61,11 +68,19 @@ public class GameManager : MonoBehaviour {
 
     private void Update()
     {
-        if(canAddPoints)
+        if(canAddPoints && !hasGameEnded)
         {
             points += basePointsPerSecond * pointsMulti * Time.unscaledDeltaTime;
         }
-        time += Time.deltaTime;
+
+        if(time >= timeEnd && !hasGameEnded)
+        {
+            onGameEnd();
+        }
+        else
+        {
+            time += Time.deltaTime;
+        }
     }
 
     private void onPlayerTouchGround()
@@ -78,4 +93,12 @@ public class GameManager : MonoBehaviour {
         canAddPoints = true;
     }
 
+    private void onGameEnd()
+    {
+        hasGameEnded = true;
+        Time.timeScale = 0;
+        gameOverMenu.ShowGameOver();
+    }
+
 }
+
