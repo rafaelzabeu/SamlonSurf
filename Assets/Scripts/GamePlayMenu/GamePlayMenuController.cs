@@ -18,7 +18,7 @@ public class GamePlayMenuController : MonoBehaviour {
     {
         get
         {
-            return ((int)manager.time).ToString();
+            return (((int)manager.timeEnd) - ((int)manager.time)).ToString();
         }
     }
     public string formatedScore

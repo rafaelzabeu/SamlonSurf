@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class MenuController : MonoBehaviour {
 
+    public GameObject loadSplash;
+
     public GameObject menu;
     public LeaderboardBehaviour leaderbord;
 
@@ -18,6 +20,7 @@ public class MenuController : MonoBehaviour {
 
     public void PlayGame()
     {
+        loadSplash.SetActive(true);
         SceneManager.LoadScene("Game");
     }
 
