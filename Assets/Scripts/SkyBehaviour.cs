@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class SkyBehaviour : MonoBehaviour {
 
+    [HideInInspector]
+    public GameManager gameManager;
+
     public PlayerBehaviour playerBehaviour;
 
     public SpriteRenderer gabeTheGod;
@@ -18,7 +21,7 @@ public class SkyBehaviour : MonoBehaviour {
 
     private Vector2 m_offset;
 
-    private float preCalculatedEpsilon = float.Epsilon * 100;
+    //private float preCalculatedEpsilon = float.Epsilon * 100;
 
     private bool m_isShowingGabe = false;
 
@@ -26,7 +29,7 @@ public class SkyBehaviour : MonoBehaviour {
     {
         playerTransform = playerBehaviour.transform;
         m_material = GetComponent<Renderer>().material;
-        
+        gameManager = FindObjectOfType<GameManager>();
     }
 
     private void Start()
@@ -71,7 +74,9 @@ public class SkyBehaviour : MonoBehaviour {
     private float getOffsetY()
     {
         float result = m_material.mainTextureOffset.y + (playerTransform.position.y - playerBehaviour.oldYPos) * Time.deltaTime;
-        return Mathf.Clamp(result,yMin,yMax);
+        result = Mathf.Clamp(result, yMin, yMax);
+        gameManager.CalculateMultiplyer(result);
+        return result;
     }
 
     private IEnumerator showGabe(bool show)
@@ -88,5 +93,7 @@ public class SkyBehaviour : MonoBehaviour {
             time += Time.deltaTime;
             yield return null;
         }
+
+        gameManager.OnGabeFound();
     }
 }
