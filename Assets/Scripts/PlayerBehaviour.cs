@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,6 +12,8 @@ public class PlayerBehaviour : MonoBehaviour
 
     public delegate void PlayerGoingDownCallback(bool goingDown);
     public event PlayerGoingDownCallback OnPlayerChangesOrientation;
+
+    public AudioClip[] jumpSound;
 
     public bool isFlying = false;
 
@@ -27,8 +30,6 @@ public class PlayerBehaviour : MonoBehaviour
     [SerializeField]
     private float m_gravity;
 
-    
-
     private Transform m_transform;
 
     private void Awake()
@@ -44,7 +45,7 @@ public class PlayerBehaviour : MonoBehaviour
         if (Input.GetKey(KeyCode.DownArrow))
         {
             m_rigibody.velocity = new Vector3(m_rigibody.velocity.x, m_rigibody.velocity.y - (2 * Time.deltaTime), m_rigibody.velocity.z);
-            Physics.gravity = new Vector3(0f, -9.8f, 0f);
+            Physics.gravity = new Vector3(0f, -15f, 0f);
         }
 
         if (Input.GetKeyUp(KeyCode.DownArrow) && m_canBoost)
@@ -108,12 +109,31 @@ public class PlayerBehaviour : MonoBehaviour
             isGoingDown = true;
         }
 
+
+    }
+
+    private IEnumerator wait(float waitTime, Action onWaitEnd)
+    {
+        yield return new WaitForSeconds(waitTime);
+        onWaitEnd();
+    }
+
+    private void LateUpdate()
+    {
+        oldXPos = transform.position.x;
         oldYPos = transform.position.y;
     }
 
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Unstucker"))
+        {
             m_rigibody.velocity = new Vector3(m_rigibody.velocity.x + 2f, m_rigibody.velocity.y + 2f, m_rigibody.velocity.z);
+            AudioController.Instance.Play(jumpSound[0], AudioController.SoundType.SoundEffect2D, gameObject);
+            var v = jumpSound[0];
+            jumpSound[0] = jumpSound[jumpSound.Length - 1];
+            jumpSound[jumpSound.Length - 1] = v;
+        }
     }
+
 }

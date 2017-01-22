@@ -20,6 +20,13 @@ ModelImporter:
     100024: Object005
     100026: Object006
     100028: Donut001
+    100030: Background 004
+    100032: Donut002
+    100034: Ground002
+    100036: Line003
+    100038: Object007
+    100040: Object008
+    100042: Object009
     400000: //RootNode
     400002: Line001
     400004: Object
@@ -35,6 +42,13 @@ ModelImporter:
     400024: Object005
     400026: Object006
     400028: Donut001
+    400030: Background 004
+    400032: Donut002
+    400034: Ground002
+    400036: Line003
+    400038: Object007
+    400040: Object008
+    400042: Object009
     2300000: //RootNode
     2300002: Line001
     2300004: Object
@@ -50,6 +64,13 @@ ModelImporter:
     2300024: Object005
     2300026: Object006
     2300028: Donut001
+    2300030: Background 004
+    2300032: Donut002
+    2300034: Ground002
+    2300036: Line003
+    2300038: Object007
+    2300040: Object008
+    2300042: Object009
     3300000: //RootNode
     3300002: Line001
     3300004: Object
@@ -65,6 +86,13 @@ ModelImporter:
     3300024: Object005
     3300026: Object006
     3300028: Donut001
+    3300030: Background 004
+    3300032: Donut002
+    3300034: Ground002
+    3300036: Line003
+    3300038: Object007
+    3300040: Object008
+    3300042: Object009
     4300000: Line001
     4300002: Object
     4300004: Object003
@@ -79,6 +107,13 @@ ModelImporter:
     4300022: Object006
     4300024: Background 003
     4300026: Donut001
+    4300028: Line003
+    4300030: Object007
+    4300032: Object008
+    4300034: Object009
+    4300036: Ground002
+    4300038: Donut002
+    4300040: Background 004
     9500000: //RootNode
   materials:
     importMaterials: 1
