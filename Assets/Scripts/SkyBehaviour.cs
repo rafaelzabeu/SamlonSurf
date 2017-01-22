@@ -63,8 +63,8 @@ public class SkyBehaviour : MonoBehaviour {
     private float getOffsetX()
     {
         float result = m_material.mainTextureOffset.x + (playerTransform.position.x - playerBehaviour.oldXPos) * Time.deltaTime;
-        if (Mathf.Abs(result % 1) <= preCalculatedEpsilon)
-            result = 0;
+        //if (Mathf.Abs(result % 1) <= preCalculatedEpsilon)
+        //    result = 0;
         return result;
     }
 
